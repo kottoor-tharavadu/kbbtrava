@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/lock.css">
+    <title>Document</title>
+</head>
+<body style="background-color: #ffffff;" >
+    <div class="container">
+        <div class="box">
+            <div class="heading">
+                <img style="height: auto; width: 50%;"  src="assests/img/hero-img.png" alt="">
+            </div>
+            <form class="login-form" onsubmit="return validateLogin()">
+                <div class="field">
+                    <input id="username" type="text" placeholder="Phone number, username, or email" value="defaultUsername" />
+                    <label for="username">username</label>
+                </div>
+                <div class="field">
+                    <input id="password" type="password" placeholder="password" value="defaultPassword" />
+                    <label for="password">Password</label>
+                </div>
+                <button type="submit" class="login-button" title="login">Log In</button>
+                <div class="separator">
+            </form>
+        </div>
+        <div class="box">
+            <p>Don't have user and password? <a class="signup" href="#">contact as</a></p>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check if the entered username and password are correct
+            if (username === "test" && password === "test") {
+                // Redirect to main.html
+                window.location.href = "learn.html";
+                return false; // Prevent the form from submitting
+            } else {
+                // Display an error message or perform other actions for incorrect credentials
+                alert("Incorrect username or password. Please try again.");
+                return false; // Prevent the form from submitting
+            }
+        }
+    </script>
+</body>
+</html>

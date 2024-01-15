@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your HTML Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <style>
+
+    
+#loginModal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+    }
+
+    #loginModal label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #loginModal input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    #loginButton {
+      cursor: pointer;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .main-content {
+            padding: 20px;
+        }
+        .cardabout{
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;}
+
+    
+                 
+    body {
+     
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f4f4f4;
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+
+    #titleBar {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #titleBar h1 {
+      margin: 0;
+    }
+
+    #searchBar {
+      display: flex;
+      align-items: center;
+    }
+
+    #searchInput {
+      padding: 5px;
+      margin-right: 10px;
+    }
+
+    #userImage {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    #bottomNav {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section {
+      display: none;
+      padding: 20px;
+    }
+    .sectioncard {
+            margin-bottom: 20px;
+        }
+
+
+    .card {
+  width: 400px;
+  height: auto;
+  border-radius: 15px; /* Added border-radius */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: 15px; /* Added border radius to top left */
+  border-top-right-radius: 15px; /* Added border radius to top right */
+}
+
+.content {
+  padding: 15px;
+}
+
+.title {
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.description {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+  display: none;
+    
+}
+
+
+    #section1 { background-color: transparent; } /* No background color */
+    #section2 { background-color: transparent; } /* SkyBlue */
+    #section3 { background-color: transparent; } /* Gold */
+    #section4 { background-color: transparent; } /* PaleGreen */
+  </style>
+</head>
+<body>
+    <div id="titleBar">
+        <h1 style="font-size: 20px;" >K.B.B TRAVA</h1>
+        <div id="searchBar">
+          <input type="text" id="searchInput" placeholder="Search">
+          <a href="#">
+            <img id="userImage" src="path/to/your/image.jpg" alt="User Image">
+          </a>
+        </div>
+      </div>
+      
+      <div class="section" id="section1">
+          
+      
+          <div class="Container-fluid">
+            <div class="row" >
+          
+            <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+                <h2 class="title" style="padding: 15px;">Card Title 2</h2>
+                <img src="assests/img/IMG-20240111-WA0347.jpg" alt="Card Image">
+                <div class="content">
+                  <h2 class="title">Card Title</h2>
+                  <p class="description">This is the description of the card.</p>
+                </div>
+              </div>
+              
+        
+            <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+              <h2 class="title" style="padding: 15px;">Card Title 2</h2>
+              <img src="assests/img/IMG-20240111-WA0347.jpg" alt="Card Image">
+              <div class="content">
+                <h2 class="title">Card Title</h2>
+                <p class="description">This is the description of the card.</p>
+              </div>
+            </div>
+        
+            <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+              <h2 class="title" style="padding: 15px;">Card Title 3</h2>
+              <img src="assests/img/IMG-20240111-WA0354.jpg" alt="Card Image">
+              <div class="content">
+                <h2 class="title">Card Title</h2>
+                <p class="description">This is the description of the card.</p>
+              </div>
+            </div>
+        
+            <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+              <h2 class="title" style="padding: 15px;">Card Title 4</h2>
+              <img src="assests/img/IMG-20240111-WA0364.jpg" alt="Card Image">
+              <div class="content">
+                <h2 class="title">Card Title</h2>
+                <p class="description">This is the description of the card.</p>
+              </div>
+            </div>
+        
+            <!-- Add more cards as needed -->
+          </div>
+
+
+          </div>
+      </div>
+        
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="section" id="section2">
+        <h2>Section 2</h2>
+
+
+
+
+
+
+
+
+        <div class="Container-fluid">
+          <div class="row" >
+        
+          <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+              <h2 class="title" style="padding: 15px;">Card Title 2</h2>
+              <video controls>
+                <source src="assests/video/video_2024-01-14_17-40-38.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="content">
+                <h2 class="title">Card Title</h2>
+                <p class="description">This is the description of the card.</p>
+              </div>
+            </div>
+            
+      
+          <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+            <h2 class="title" style="padding: 15px;">Card Title 2</h2>
+            <video controls>
+              <source src="assests/video/video_2024-01-14_17-41-00.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="content">
+              <h2 class="title">Card Title</h2>
+              <p class="description">This is the description of the card.</p>
+            </div>
+          </div>
+      
+          <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+            <h2 class="title" style="padding: 15px;">Card Title 3</h2>
+            <video controls>
+              <source src="assests/video/video_2024-01-14_18-10-18.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="content">
+              <h2 class="title">Card Title</h2>
+              <p class="description">This is the description of the card.</p>
+            </div>
+          </div>
+      
+          <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+            <h2 class="title" style="padding: 15px;">Card Title 4</h2>
+            <video controls>
+              <source src="assests/video/video_2024-01-14_18-10-47.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="content">
+              <h2 class="title">Card Title</h2>
+              <p class="description">This is the description of the card.</p>
+            </div>
+          </div>
+
+          <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+            <h2 class="title" style="padding: 15px;">Card Title 4</h2>
+            <video controls>
+              <source src="assests/video/video_2024-01-14_18-10-52.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="content">
+              <h2 class="title">Card Title</h2>
+              <p class="description">This is the description of the card.</p>
+            </div>
+          </div>
+
+
+          <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+            <h2 class="title" style="padding: 15px;">Card Title 4</h2>
+            <video controls>
+              <source src="assests/video/video_2024-01-14_18-10-57.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="content">
+              <h2 class="title">Card Title</h2>
+              <p class="description">This is the description of the card.</p>
+            </div>
+          </div>
+
+
+          <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" onclick="toggleDescription(this)">
+            <h2 class="title" style="padding: 15px;">Card Title 4</h2>
+            <video controls>
+              <source src="assests/video/video_2024-01-14_18-11-02.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="content">
+              <h2 class="title">Card Title</h2>
+              <p class="description">This is the description of the card.</p>
+            </div>
+          </div>
+      
+          <!-- Add more cards as needed -->
+        </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Content for Section 2 goes here -->
+      </div>
+      
+      <div class="section" id="section3">
+        <h2>Section k</h2>
+
+
+
+
+      
+
+
+
+        <!-- Content for Section 3 goes here -->
+      </div>
+      
+      <div class="section" id="section4">
+        
+        
+              
+          
+          
+        <div style="display: flex; justify-content: center;"  class="cardabout">
+                
+          <img  class="col-12"  style="height: auto; width: 70%;" src="assests/img/hero-img.png" alt="home icon">
+        
+      </div>
+             
+              <div class="main-content">
+                  <div class="sectioncard">
+                      <div class="cardabout">
+                          <h3>K.B.B TRAVA ABOUT</h3>
+                      </div>
+                  </div>
+                  <div class="sectioncard">
+                      <DIV CLASS="cardabout" >
+                      <h3>members</h3>
+                  </DIV>
+                  <DIV class="cardabout" >
+                      <div class="option">
+                          <span class="label">CYBER HADES</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">MR.TOB</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">DX MOOSA</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">DEVIL PSYCHO</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">AGUSTIN</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">SATABIC JOSHUA</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">CYBER NEXUS</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">CYBER NFO</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">CAPTAIN X</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">MITTU 777</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">BRADLEY</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">CYBER TOXIC</span>
+                          <span class="arrow">></span>
+                      </div>
+                  </DIV>
+                  </div>
+                  <div class="sectioncard">
+                    <div class="cardabout">
+                      <h3>SKILL SET</h3>
+                    </div>
+                    <div class="cardabout" >
+                      <div class="option">
+                          <span class="label">VOICE FIGHTERS</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">HACKERS</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">VIRUS FIGHTERS</span>
+                          <span class="arrow">></span>
+                      </div>
+                      <div class="option">
+                          <span class="label">DP MAKER</span>
+                          <span class="arrow">></span>
+                      </div>
+                  </div>
+                </div>
+                  
+              </div>
+            
+              
+          </body>
+          </html>
+        <!-- Content for Section 4 goes here -->
+      </div>
+      
+      <div id="bottomNav">
+        <img style="height: 30px;width: 30px;" src="assests/img/lean-management.png" alt="Section 3" onclick="showSection(3)">
+        <img style="height: 30px;width: 30px;" src="assests/img/more.png" alt="Section 1" onclick="showSection(1)">
+        <img style="height: 30px;width: 30px;" src="assests/img/reel.png" alt="Section 2" onclick="showSection(2)">
+        <img style="height: 30px;width: 30px;" src="assests/img/personal-card.png" alt="Section 4" onclick="showSection(4)">
+      </div>
+      
+      <script>
+        let currentSection = 1;
+      
+        showSection(1); // Set default section as Section 1
+
+        function toggleDescription(card) {
+    // Toggle the visibility of the description inside the clicked card
+    const description = card.querySelector('.description');
+    description.style.display = (description.style.display === 'none' || description.style.display === '') ? 'block' : 'none';
+  }
+      
+        function showSection(sectionNumber) {
+          document.querySelectorAll('.section').forEach(section => {
+            section.style.display = 'none';
+          });
+      
+          document.getElementById(`section${sectionNumber}`).style.display = 'block';
+          currentSection = sectionNumber;
+        }
+      
+        function swipeRight() {
+          if (currentSection > 1) {
+            showSection(currentSection - 1);
+          }
+        }
+      
+        function swipeLeft() {
+          if (currentSection < 4) {
+            showSection(currentSection + 1);
+          }
+        }
+      
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'ArrowLeft') {
+            swipeLeft();
+          } else if (event.key === 'ArrowRight') {
+            swipeRight();
+          }
+        });
+      </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      <script>
+        // Add your existing scripts here
+    
+        // Function to toggle the login modal
+        function toggleLoginModal() {
+          const loginModal = document.getElementById('loginModal');
+          loginModal.style.display = loginModal.style.display === 'block' ? 'none' : 'block';
+        }
+    
+        // Function to perform login and redirect
+        function login() {
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+    
+          // Replace the following condition with your actual login logic
+          if (username === 'your_valid_username' && password === 'your_valid_password') {
+            // Redirect to other.html
+            window.location.href = 'other.html';
+          } else {
+            // For now, just close the modal
+            toggleLoginModal();
+          }
+        }
+      </script>
+<!-- Rest of your HTML code remains unchanged -->
+
+</body>
+</html>

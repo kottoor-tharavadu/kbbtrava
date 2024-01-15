@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Your Page Title</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .animated-element {
+            /* Set initial opacity to 0 */
+            opacity: 0;
+            text-align: center;
+        }
+
+        /* Add the fadeInUp animation to the element when it has the 'animate__animated' class */
+        .animate__animated.animate__fadeInUp {
+            animation-duration: 1s;
+        }
+
+        /* Style for the text at the bot tom */
+        .bottom-text {
+            position: absolute;
+            color: white;
+            bottom:-50px;/* Adjust bottom distance as needed */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="animatedDiv" class="animated-element animate__animated animate__fadeInUp">
+        <img src="assests/img/hero-img.png" alt="Your Image" style="width: 50%;">
+        <p class="bottom-text">KBB TRAVA</p>
+    </div>
+
+    <script>
+        // Wait for the animation to complete, then redirect to lock.html
+        document.addEventListener('DOMContentLoaded', function() {
+            var animatedDiv = document.getElementById('animatedDiv');
+            
+            animatedDiv.addEventListener('animationend', function() {
+                // Redirect to lock.html
+                window.location.href = 'main.html';
+            });
+        });
+    </script>
+</body>
+</html>
